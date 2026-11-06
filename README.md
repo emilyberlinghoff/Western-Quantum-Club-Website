@@ -52,33 +52,30 @@ Website/
 
 Edit your assigned HTML file first. Coordinate changes to shared files with the website lead to reduce merge conflicts. Each page’s `data-page` value matches its ID in `site.js`; this highlights the current navigation link. Navigation URLs are resolved relative to the shared script, so the template also supports a future GitHub Pages repository subpath.
 
-## Connect to GitHub
+## GitHub and main protection
 
-A local Git repository has been initialized on `main`. There is no remote and no initial commit. Create an **empty GitHub repository** (leave GitHub’s README, licence, and .gitignore options unchecked), then run these commands from this folder. Replace `YOUR-ORG/YOUR-REPO` with the repository you created:
+Repository: https://github.com/emilyberlinghoff/Western-Quantum-Club-Website
 
-```sh
-git add .
-git commit -m "Add WQC website starter"
-git remote add origin https://github.com/YOUR-ORG/YOUR-REPO.git
-git push -u origin main
-```
+The seven migration branches are `migrate/home`, `migrate/about`, `migrate/projects`, `migrate/events`, `migrate/education`, `migrate/media`, and `migrate/contact`.
 
-If Git asks who you are, configure `git config user.name "Your Name"` and `git config user.email "you@example.com"` in this repository, then retry the commit. GitHub may require sign-in through your credential manager or GitHub CLI.
+`main` requires a pull request with one approval from the code owner, currently **@emilyberlinghoff**. New commits dismiss previous approvals. Direct pushes, force pushes, and deletion of `main` are blocked, including for administrators. Contributors can push their work to their migration branches.
 
-Creating a repository does not host the site automatically. Hosting and moving the custom domain from Wix can be decided later; this starter needs only static hosting. No deployment or domain changes have been configured.
+GitHub does not allow authors to approve their own pull requests. While Emily is the only code owner, her own pull requests cannot satisfy the approval rule without a deliberate administrator settings change. Add the president as a second code owner when ready: give their GitHub account write access, then add their username on the same `*` line in `.github/CODEOWNERS`. Either person's approval will then count for other authors; each can review the other's pull requests. Since Emily cannot approve her own PR, have the president open the CODEOWNERS update for Emily to approve, or deliberately adjust protection for that setup change.
+
+Hosting and moving the custom domain from Wix can be decided later; this starter needs only static hosting. No deployment or domain changes have been configured.
 
 ## Director workflow
 
 1. Accept the repository invitation, clone it, and start the local server.
-2. Start a branch for your assigned page:
+2. Fetch and switch to the existing branch for your assigned page:
 
    ```sh
-   git switch main
+   git fetch origin
+   git switch migrate/about
    git pull --ff-only
-   git switch -c migrate/about
    ```
 
-3. Edit your page and add its images. Use a different branch name for each page, such as `migrate/events`.
+3. Edit your page and add its images. Use the matching migration branch for your page, such as `migrate/events`. After it is merged, delete that branch and create a fresh branch from the latest `main` for later changes.
 4. Preview on desktop and a narrow mobile window. Check navigation, image loading, readable text, and working links. Use the keyboard to check focus and the mobile menu.
 5. Commit the files you changed and push your branch. For the About page, for example:
 
@@ -90,7 +87,7 @@ Creating a repository does not host the site automatically. Hosting and moving t
 
    Only include the image folder in `git add` if you created it. Use `git status` to review the files before committing.
 
-6. Open a pull request into `main` on GitHub. Include what changed and a screenshot; ask the website lead to review it before merging. Pull the latest `main` before starting your next task.
+6. Open a pull request into `main` on GitHub. Include what changed and a screenshot; request review from **@emilyberlinghoff**. The pull request requires her approval before merging. Pull the latest `main` before starting your next task.
 
 ## Adding content and future subpages
 
