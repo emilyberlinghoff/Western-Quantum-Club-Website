@@ -4,44 +4,286 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home | Western Quantum Club</title>
-  <meta name="description" content="Explore quantum computing with Western Quantum Club at Western University.">
+  <meta name="description" content="Explore quantum computing with Western Quantum Club at Western University. Engineering quantum algorithms, Qiskit modeling, and research.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/bloch-sphere.js" defer></script>
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header"></header>
+
   <main id="main" tabindex="-1">
-    <!-- Landing page owner: replace this starter content as migration proceeds. -->
-    <section class="hero">
-      <div class="container hero-grid">
+    
+    <!-- Hero Section: Waterloo Defence-inspired Quantum Visualizer -->
+    <section class="hero-quantum" aria-labelledby="hero-heading">
+      <div class="container hero-quantum-grid">
+        
+        <!-- Left: Copy & Actions -->
         <div>
-          <p class="eyebrow">Western Quantum Club</p>
-          <h1>A community for<br>quantum curiosity.</h1>
-          <p class="lead">Explore quantum computing through learning, collaboration, and hands-on projects at Western University.</p>
-          <div class="actions">
-            <a class="button" href="projects/">Explore projects <span aria-hidden="true">↗</span></a>
-            <a class="button secondary" href="about/">Get to know WQC</a>
+          <div class="tech-tag">
+            <span aria-hidden="true" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#bc83ff;box-shadow:0 0 8px #bc83ff;"></span>
+            <span>Western University · Dept of Engineering &amp; Physics</span>
+          </div>
+          
+          <h1 id="hero-heading" class="hero-title-tech">
+            Engineering the <br>
+            <span>Quantum Frontier</span>.
+          </h1>
+          
+          <p class="hero-lead-tech">
+            Western Quantum Club (WQC) is an interdisciplinary student organization at Western University bridging theoretical physics, IBM Qiskit algorithm modeling, post-quantum security, and industry consulting.
+          </p>
+          
+          <div class="tech-actions">
+            <a class="btn-tech" href="projects/">Explore Projects <span aria-hidden="true">↗</span></a>
+            <a class="btn-tech-outline" href="events/">Events &amp; Hackathons <span aria-hidden="true">→</span></a>
+            <a class="btn-tech-outline" href="about/">About WQC</a>
           </div>
         </div>
-        <div class="quantum-art" aria-hidden="true"><span>ψ</span><i></i></div>
+
+        <!-- Right: Interactive 3D Bloch Sphere Visualizer -->
+        <div class="bloch-box" aria-label="Interactive 3D Bloch Sphere Simulation">
+          <div class="bloch-header">
+            <span>// 01 · 3D Quantum Bloch Sphere</span>
+            <span id="bloch-state-text" style="color:var(--accent-violet);">|ψ⟩ Precessing Dynamic State</span>
+          </div>
+
+          <div class="bloch-canvas-container">
+            <canvas id="bloch-canvas" aria-label="3D Bloch Sphere Canvas"></canvas>
+            <div class="bloch-hud-hint">Drag to rotate 3D sphere · Touch enabled</div>
+            <div class="bloch-hud-readout">|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ)sin(θ/2)|1⟩</div>
+          </div>
+
+          <div class="bloch-footer-controls">
+            <!-- Preset State Buttons -->
+            <div class="bloch-presets-bar">
+              <span class="bloch-presets-label">State Presets:</span>
+              <button type="button" class="preset-chip" data-bloch-preset="zero">|0⟩ Ground</button>
+              <button type="button" class="preset-chip" data-bloch-preset="one">|1⟩ Excited</button>
+              <button type="button" class="preset-chip" data-bloch-preset="plus">|+⟩ Superposition</button>
+              <button type="button" class="preset-chip" data-bloch-preset="minus">|-⟩</button>
+              <button type="button" class="preset-chip" data-bloch-preset="super">|ψ⟩ Bell Mix</button>
+              <button type="button" class="preset-chip" id="bloch-resume-anim">↺ Resume</button>
+            </div>
+
+            <!-- Live Telemetry Readout -->
+            <div class="bloch-telemetry-grid">
+              <div class="telemetry-row">
+                <span>Polar (θ):</span>
+                <span class="telemetry-val" id="bloch-theta-val">1.05 rad (60°)</span>
+              </div>
+              <div class="telemetry-row">
+                <span>Azimuth (φ):</span>
+                <span class="telemetry-val" id="bloch-phi-val">0.79 rad (45°)</span>
+              </div>
+              <div class="telemetry-row" style="grid-column: span 2;">
+                <div class="prob-meter">
+                  <span style="font-size:0.68rem;min-width:55px;">P(|0⟩): <strong id="bloch-p0-val">75.0%</strong></span>
+                  <div class="meter-track"><div id="bloch-p0-bar" class="meter-fill" style="width:75%;"></div></div>
+                  <span style="font-size:0.68rem;min-width:55px;text-align:right;">P(|1⟩): <strong id="bloch-p1-val">25.0%</strong></span>
+                  <div class="meter-track"><div id="bloch-p1-bar" class="meter-fill" style="width:25%;background:#d4b4f5;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
-    <section class="section container" aria-labelledby="explore-heading">
+
+    <!-- Technical Telemetry / System Strip -->
+    <div class="telemetry-ticker">
+      <div class="container ticker-grid">
+        <div class="ticker-item">
+          <span class="ticker-num">// 01</span>
+          <span>4 Collaborative Subteams</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-num">// 02</span>
+          <span>IBM Qiskit &amp; Annealing Platforms</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-num">// 03</span>
+          <span>Hardware Double-Slit Optics</span>
+        </div>
+        <div class="ticker-item">
+          <span class="ticker-num">// 04</span>
+          <span>ACEB · London, ON, Canada</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 01: Core Divisions -->
+    <section class="section container" aria-labelledby="subteams-heading">
+      <div class="tech-divider">
+        <span>// 01 · Organizational Architecture</span>
+      </div>
+      
       <div class="section-heading">
-        <div><p class="eyebrow">Explore WQC</p><h2 id="explore-heading">Find your starting point.</h2></div>
-        <p>Discover the ideas, people, and opportunities that bring our community together.</p>
+        <div>
+          <p class="eyebrow">What We Do</p>
+          <h2 id="subteams-heading">Collaborative Quantum Subteams.</h2>
+        </div>
+        <p>WQC is structured into multidisciplinary teams operating at the intersection of computer science, physics, and business.</p>
       </div>
-      <div class="cards">
-        <article class="card"><span class="card-number">01 / Build</span><h3>Projects</h3><p>Discover our work in quantum computing and explore opportunities to contribute.</p><a href="projects/">Explore our work <span aria-hidden="true">→</span></a></article>
-        <article class="card"><span class="card-number">02 / Connect</span><h3>Events</h3><p>Find opportunities to meet the community and exchange ideas.</p><a href="events/">Visit events <span aria-hidden="true">→</span></a></article>
-        <article class="card"><span class="card-number">03 / Learn</span><h3>Education</h3><p>Find a place to begin and resources to keep learning about quantum computing.</p><a href="education/">Start learning <span aria-hidden="true">→</span></a></article>
+
+      <div class="tech-card-grid">
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="hud-mono" style="color:var(--purple);font-weight:700;">// 01 · COMPUTATION</span>
+            <span class="badge-pill">Software</span>
+          </div>
+          <h3>Computing Applications</h3>
+          <p>Modeling breakthrough quantum algorithms with IBM's Qiskit SDK. Developing open-source solutions for nested Monte Carlo financial simulations and annealing logistics.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Explore software models <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="hud-mono" style="color:var(--purple);font-weight:700;">// 02 · THEORY</span>
+            <span class="badge-pill">Research</span>
+          </div>
+          <h3>Research &amp; Advisory</h3>
+          <p>Investigating the theoretical physics underpinning quantum mechanics, post-quantum cryptography (QModelGuard), and regulatory implications for data infrastructure.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Read research papers <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="hud-mono" style="color:var(--purple);font-weight:700;">// 03 · INDUSTRY</span>
+            <span class="badge-pill">Strategy</span>
+          </div>
+          <h3>Consulting &amp; Business</h3>
+          <p>Analyzing cross-industry quantum feasibility: financial portfolio optimization, cancer treatment models, climate simulation, and strategic enterprise roadmaps.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="about/">Learn our strategy <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="hud-mono" style="color:var(--purple);font-weight:700;">// 04 · COMMUNITY</span>
+            <span class="badge-pill">Education</span>
+          </div>
+          <h3>Education &amp; Hardware</h3>
+          <p>Empowering students through Qiskit certification programs, beginner-to-advanced workshops, and physical hardware experiments including our Double-Slit apparatus.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="education/">Join a workshop <span aria-hidden="true">→</span></a>
+        </article>
       </div>
     </section>
-    <section class="container" aria-labelledby="community-heading">
-      <div class="callout"><p class="eyebrow">Get involved</p><h2 id="community-heading">Your next idea starts with a conversation.</h2><p>Interested in the club or working together? We’d love to hear from you.</p><a class="button" href="contact/">Contact us</a></div>
+
+    <!-- Section 02: 2025-2026 Flagship Projects -->
+    <section class="section container" style="padding-top:0;" aria-labelledby="projects-heading">
+      <div class="tech-divider">
+        <span>// 02 · 2025–2026 Flagship Projects</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Applied Research</p>
+          <h2 id="projects-heading">Real-World Quantum Solutions.</h2>
+        </div>
+        <p>Explore current initiatives built, modeled, and tested end-to-end by student engineering leads at Western.</p>
+      </div>
+
+      <div class="tech-card-grid">
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="badge-pill">Amir Orfali · Lead</span>
+            <span class="hud-mono" style="color:var(--purple);font-weight:bold;">[QAE / QISKIT]</span>
+          </div>
+          <h3>Quantum Advantage in Quant Finance</h3>
+          <p>Investigating Quantum Amplitude Estimation (QAE) to achieve quadratic speedup over classical nested Monte Carlo simulations for derivative pricing and multi-asset risk analysis.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Project breakdown <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="badge-pill">Nicolas Folz · Lead</span>
+            <span class="hud-mono" style="color:var(--purple);font-weight:bold;">[ANNEALING]</span>
+          </div>
+          <h3>Last-Mile Delivery Optimization</h3>
+          <p>Modeling NP-hard vehicle routing constraints using quantum annealing algorithms, benchmarking speed and route efficiency against standard classical heuristics.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Project breakdown <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="badge-pill">Victor Postea · Lead</span>
+            <span class="hud-mono" style="color:var(--purple);font-weight:bold;">[POST-QUANTUM CRYPTO]</span>
+          </div>
+          <h3>QModelGuard: AI Asset Protection</h3>
+          <p>Securing high-value machine learning weights from harvest-now-decrypt-later attacks using post-quantum cryptographic libraries, lattice-based encryption, and digital signatures.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Project breakdown <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="tech-card">
+          <div class="card-tech-header">
+            <span class="badge-pill">Hunter Korble · Lead</span>
+            <span class="hud-mono" style="color:var(--purple);font-weight:bold;">[HARDWARE / OPTICS]</span>
+          </div>
+          <h3>Physical Double-Slit Experiment</h3>
+          <p>Constructing a physical laboratory apparatus to demonstrate wave-particle duality, photon interference fringes, and quantum measurement phenomena with real-time digital detection.</p>
+          <a class="hud-mono" style="font-size:0.8rem;font-weight:700;margin-top:auto;" href="projects/">Project breakdown <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
     </section>
+
+    <!-- Section 03: Events & Community Spotlight -->
+    <section class="section container" style="padding-top:0;" aria-labelledby="events-spotlight-heading">
+      <div class="tech-divider">
+        <span>// 03 · Events &amp; Ecosystem</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Connect &amp; Compete</p>
+          <h2 id="events-spotlight-heading">Workshops, Hackathons &amp; Talks.</h2>
+        </div>
+        <p>From our upcoming HardHaQ 2026 hackathon to faculty partnerships and Qiskit cohorts, discover how to get involved.</p>
+      </div>
+
+      <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <article class="card">
+          <span class="card-number" style="color:var(--purple);font-weight:700;">// 01 · COMPETITION</span>
+          <h3>HardHaQ 2026</h3>
+          <p>Western’s premier hardware &amp; quantum hackathon. Build physical optics experiments, quantum software circuits, and hybrid computing solutions.</p>
+          <a href="events/">Event Details <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card">
+          <span class="card-number" style="color:var(--purple);font-weight:700;">// 02 · CERTIFICATION</span>
+          <h3>Qiskit Certification Program</h3>
+          <p>Structured study cohorts preparing students for the IBM Quantum Associate Developer certification with mentorship from experienced developers.</p>
+          <a href="events/">Certification Cohorts <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card">
+          <span class="card-number" style="color:var(--purple);font-weight:700;">// 03 · COLLABORATION</span>
+          <h3>WQC x Dr. Shaimaa Ali</h3>
+          <p>Pioneering partnership with Western’s Inaugural Director of AI Systems Engineering to deliver cutting-edge quantum AI curricula.</p>
+          <a href="events/">Read Announcement <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 04: Founders' Mission Callout -->
+    <section class="container" style="margin-bottom:4rem;" aria-labelledby="mission-heading">
+      <div class="callout" style="background:#170a2b;color:#ffffff;border:1px solid rgba(188,131,255,0.25);">
+        <div class="hud-mono" style="font-size:0.72rem;color:var(--accent-lilac);margin-bottom:0.75rem;">// 04 · OUR MISSION</div>
+        <h2 id="mission-heading" style="color:#ffffff;font-size:clamp(1.6rem,2.8vw,2.2rem);">Shaping the Future of Ethical Quantum Computation.</h2>
+        <p style="color:#d4b4f5;max-width:820px;font-size:1.05rem;line-height:1.7;margin-bottom:1.5rem;">
+          "Quantum computers are an impeccable example of technology that provides the opportunity to contribute to social advancement—from curing diseases to climate modeling. By inspiring students with aligned values and technical curiosity, we ensure this powerful technology is guided ethically."
+        </p>
+        <div class="hud-mono" style="font-size:0.75rem;color:#a797be;margin-bottom:1.5rem;">— WQC Founding Executive Team</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <a class="btn-tech" href="contact/">Join WQC Community</a>
+          <a class="btn-tech-outline" href="mailto:WEQuantumClub@gmail.com">Email Leadership</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
 </body>
 </html>
