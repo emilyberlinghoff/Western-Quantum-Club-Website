@@ -4,33 +4,321 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Events | Western Quantum Club</title>
-  <meta name="description" content="Connect, learn, and explore quantum computing together.">
+  <meta name="description" content="Explore upcoming and past events, hackathons, Qiskit certification cohorts, and Instagram updates from Western Quantum Club at Western University.">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <script src="../assets/js/site.js" defer></script>
 </head>
 <body data-page="events">
   <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header"></header>
+
   <main id="main" tabindex="-1">
-    <!-- Events owner: edit this file. Shared header/footer live in assets/js/site.js. -->
-    <section class="page-intro">
+
+    <!-- Page Header (Technical Waterloo Defence Style) -->
+    <section class="hero-quantum" style="padding: 3.5rem 0 4rem;" aria-labelledby="events-heading">
       <div class="container">
-        <div class="breadcrumb"><a href="../">Home</a> / Events</div>
-        <p class="eyebrow">Western Quantum Club</p>
-        <h1>Events</h1>
-        <p class="lead">Connect, learn, and explore quantum computing together.</p>
+        <div class="breadcrumb" style="color:var(--accent-lilac);margin-bottom:1.25rem;">
+          <a href="../" style="color:#ffffff;">Home</a> / <span class="hud-mono">// Events</span>
+        </div>
+        
+        <div class="tech-tag">
+          <span aria-hidden="true" style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#bc83ff;box-shadow:0 0 8px #bc83ff;"></span>
+          <span>Western University · Events &amp; Ecosystem</span>
+        </div>
+
+        <h1 id="events-heading" class="hero-title-tech" style="font-size:clamp(2.4rem, 4.5vw, 3.6rem);margin-bottom:1rem;">
+          WQC Events &amp; <span>Initiatives</span>.
+        </h1>
+        
+        <p class="hero-lead-tech" style="max-width:720px;margin-bottom:0;">
+          Connecting students, faculty, and industry leaders through quantum hackathons, Qiskit developer certifications, hands-on software workshops, and research symposiums.
+        </p>
       </div>
     </section>
-    <section class="section container content-grid" aria-labelledby="page-heading">
-      <div><h2 id="page-heading">Share what’s coming up</h2><p>This page is ready for its director to migrate content from the current website.</p><p>Visit our <a href="https://www.westernquantumclub.ca/">current Wix website</a> while this page is being prepared.</p></div>
-      <!-- Replace this checklist with the page’s real content before publishing. -->
-      <aside class="placeholder" aria-label="Migration checklist">
-        <span class="placeholder-label">Template · content coming soon</span>
-        <h3>What belongs here</h3>
-        <ul><li>Upcoming events with dates and locations</li><li>Registration links when available</li><li>Past event highlights</li></ul>
-      </aside>
+
+    <!-- Upcoming Event Radar Banner -->
+    <section class="container" style="margin-top: -2rem; position: relative; z-index: 10;">
+      <div class="callout" style="background:#1b0d30; border:1px solid rgba(188,131,255,0.4); box-shadow:0 10px 30px rgba(0,0,0,0.4); color:#ffffff; padding:1.75rem 2rem;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.25rem;">
+          <div>
+            <div class="hud-mono" style="font-size:0.72rem; color:var(--accent-lilac); text-transform:uppercase; margin-bottom:0.4rem;">
+              <span style="color:#4ade80; margin-right:0.4rem;">● UPCOMING FLAGSHIP</span> // TERM 2026
+            </div>
+            <h2 style="font-size:1.6rem; margin:0 0 0.4rem; color:#ffffff;">HardHaQ 2026: Hardware &amp; Quantum Hackathon</h2>
+            <p style="margin:0; color:#d8cce8; font-size:0.95rem; max-width:680px;">
+              Western's premier 48-hour student hackathon. Build physical optics experiments, simulate quantum circuits in IBM Qiskit, and solve real-world optimization problems with faculty mentors.
+            </p>
+          </div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a class="btn-tech" href="../contact/">Register Interest <span aria-hidden="true">→</span></a>
+            <a class="btn-tech-outline" href="mailto:WEQuantumClub@gmail.com">Sponsor HardHaQ</a>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Instagram Feed Showcase Section -->
+    <section class="section container" aria-labelledby="insta-heading">
+      <div class="tech-divider">
+        <span>// 01 · Live Social Stream</span>
+      </div>
+
+      <div class="insta-showcase">
+        <div class="insta-header">
+          <div class="insta-profile-lockup">
+            <div class="insta-avatar">
+              <div class="insta-avatar-inner">W</div>
+            </div>
+            <div>
+              <div class="hud-mono" style="font-size:1.05rem; font-weight:700; color:#ffffff; letter-spacing:0.02em;">
+                @wquantumclub
+              </div>
+              <div style="font-size:0.8rem; color:#bda4d6;">
+                Western Quantum Club · Western University
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <span class="hud-mono" style="font-size:0.75rem; color:#cbb5e2; max-md:hidden;">
+              Stay updated on weekly workshops &amp; announcements
+            </span>
+            <a class="btn-tech" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" style="padding:0.6rem 1.1rem; font-size:0.78rem;">
+              Follow on Instagram <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Curated Grid of Real Club Updates -->
+        <div class="insta-feed-grid">
+          
+          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="insta-card-header">
+                <span>[ANNOUNCEMENT]</span>
+                <span>OCT 2025</span>
+              </div>
+              <p class="insta-card-caption">
+                Gear up for <strong>HardHaQ 2026</strong>! Western's first quantum &amp; hardware hackathon. Form your teams and get ready to program real quantum algorithms and build optics hardware! 🚀
+              </p>
+            </div>
+            <div class="insta-card-footer">
+              <span>#HardHaQ #WQC</span>
+              <span>View Post ↗</span>
+            </div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="insta-card-header">
+                <span>[WORKSHOP]</span>
+                <span>NOV 2024</span>
+              </div>
+              <p class="insta-card-caption">
+                Kicking off our <strong>IBM Qiskit Certification Cohort</strong>. Our software education team is breaking down single-qubit rotations, Bell state entanglement, and Qiskit Runtime.
+              </p>
+            </div>
+            <div class="insta-card-footer">
+              <span>#IBMQuantum #Qiskit</span>
+              <span>View Post ↗</span>
+            </div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="insta-card-header">
+                <span>[FACULTY]</span>
+                <span>MAR 2024</span>
+              </div>
+              <p class="insta-card-caption">
+                Excited to announce our collaboration with <strong>Dr. Shaimaa Ali</strong>, Inaugural Director of AI Systems Engineering at Western! Bringing quantum computation into modern AI systems.
+              </p>
+            </div>
+            <div class="insta-card-footer">
+              <span>#QuantumAI #WesternEng</span>
+              <span>View Post ↗</span>
+            </div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="insta-card-header">
+                <span>[COMMUNITY]</span>
+                <span>MAR 2023</span>
+              </div>
+              <p class="insta-card-caption">
+                Huge turnout at the <strong>Western Engineering Spring Open House</strong> in ACEB! Inspiring the next generation of engineers with quantum superposition and interactive demos.
+              </p>
+            </div>
+            <div class="insta-card-footer">
+              <span>#ACEB #WesternU</span>
+              <span>View Post ↗</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Reverse Chronological Event Archive -->
+    <section class="section container" style="padding-top:0;" aria-labelledby="archive-heading">
+      <div class="tech-divider">
+        <span>// 02 · Past &amp; Active Event Archive (Reverse Chronological)</span>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Timeline of Events</p>
+          <h2 id="archive-heading">What We’ve Done So Far.</h2>
+        </div>
+        <p>A comprehensive log of club hackathons, educational bootcamps, faculty talks, and student competitions in reverse chronological order.</p>
+      </div>
+
+      <div class="event-timeline">
+
+        <!-- Event 1: HardHaQ 2026 -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">Upcoming 2026</span>
+            <span>•</span>
+            <span class="badge-pill">Hackathon / Competition</span>
+            <span>•</span>
+            <span>Amit Chakma Engineering Building (ACEB)</span>
+          </div>
+          <h3>HardHaQ 2026: Western Hardware &amp; Quantum Hackathon</h3>
+          <p>
+            Western Quantum Club's flagship 48-hour hackathon bringing together students across engineering, physics, and computer science. Features dual tracks: (1) <strong>Quantum Software</strong> (solving optimization and finance problems using IBM Qiskit and quantum annealing) and (2) <strong>Quantum Hardware</strong> (physical optics experiments, lasers, and detector engineering). Includes workshops, industry mentors, and hardware prizes.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">IBM Qiskit</span>
+            <span class="badge-pill" style="background:#f4edf9;">Quantum Annealing</span>
+            <span class="badge-pill" style="background:#f4edf9;">Optics Hardware</span>
+            <span class="badge-pill" style="background:#f4edf9;">Prizes &amp; Mentorship</span>
+          </div>
+        </article>
+
+        <!-- Event 2: Qiskit Certification Program -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">Winter 2025 – 2026</span>
+            <span>•</span>
+            <span class="badge-pill">Certification Cohort</span>
+            <span>•</span>
+            <span>Spencer Engineering Labs &amp; Discord</span>
+          </div>
+          <h3>IBM Qiskit Associate Developer Certification Program</h3>
+          <p>
+            A semester-long, structured study group designed to guide Western students toward earning the official IBM Certified Associate Developer credential for Quantum Computation using Qiskit. Led by VP Software Education Emily Berlinghoff, the cohort covers Dirac bra-ket algebra, multi-qubit gates, Bell states, quantum teleportation, phase estimation, and quantum error mitigation.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">IBM Certified Developer</span>
+            <span class="badge-pill" style="background:#f4edf9;">Weekly Mentorship</span>
+            <span class="badge-pill" style="background:#f4edf9;">Hands-on Labs</span>
+          </div>
+        </article>
+
+        <!-- Event 3: Quantum Foundations & Workshops -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">Fall 2024 – Winter 2025</span>
+            <span>•</span>
+            <span class="badge-pill">Workshop Series</span>
+            <span>•</span>
+            <span>Western Engineering Classrooms</span>
+          </div>
+          <h3>Quantum Software &amp; Theory Workshop Series</h3>
+          <p>
+            Bi-weekly interactive workshops bridging the gap between introductory physics and production code. Sessions covered quantum mechanics fundamentals, moving beyond gate-level coding, exploring high-level abstractions, and simulating real-world quantum use cases in investment banking and logistics optimization.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">Python &amp; Qiskit</span>
+            <span class="badge-pill" style="background:#f4edf9;">Algorithm Design</span>
+            <span class="badge-pill" style="background:#f4edf9;">Open to All Disciplines</span>
+          </div>
+        </article>
+
+        <!-- Event 4: WQC x Dr. Shaimaa Ali -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">March 2024</span>
+            <span>•</span>
+            <span class="badge-pill">Faculty Partnership</span>
+            <span>•</span>
+            <span>Western AI Systems Engineering</span>
+          </div>
+          <h3>WQC x Dr. Shaimaa Ali: Quantum AI Systems Initiative</h3>
+          <p>
+            An inaugural partnership event with Dr. Shaimaa Ali, Inaugural Director of the AI Systems Engineering Program at Western University. The collaboration brought together machine learning and quantum computing enthusiasts to investigate quantum neural networks, post-quantum data security, and curriculum integration for Western students.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">Quantum AI</span>
+            <span class="badge-pill" style="background:#f4edf9;">AI Systems Engineering</span>
+            <span class="badge-pill" style="background:#f4edf9;">Faculty Keynote</span>
+          </div>
+        </article>
+
+        <!-- Event 5: Spring Open House at ACEB -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">March 24, 2023</span>
+            <span>•</span>
+            <span class="badge-pill">Outreach &amp; Demo</span>
+            <span>•</span>
+            <span>Amit Chakma Engineering Building (ACEB)</span>
+          </div>
+          <h3>WQC Spring Engineering Open House</h3>
+          <p>
+            The club welcomed hundreds of incoming engineering students and parents at the ACEB Atrium. Club executives set up interactive quantum circuit demos, answered questions on quantum ethics and commercial timelines, and distributed educational pamphlets on how students can prepare for future quantum careers.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">Live Demos</span>
+            <span class="badge-pill" style="background:#f4edf9;">Community Outreach</span>
+            <span class="badge-pill" style="background:#f4edf9;">ACEB Showcase</span>
+          </div>
+        </article>
+
+        <!-- Event 6: Inaugural General Meeting -->
+        <article class="event-entry">
+          <div class="event-meta">
+            <span class="event-date">Fall 2022</span>
+            <span>•</span>
+            <span class="badge-pill">Club Launch</span>
+            <span>•</span>
+            <span>Western University Main Campus</span>
+          </div>
+          <h3>Western Quantum Club Inaugural General Meeting</h3>
+          <p>
+            Founders Jackson Freeman, Emma Turk, and Nicolas Folz launched the Western Quantum Club to empower students with the skills required to lead the next quantum revolution. Established the core subteams: Computing Applications, Research &amp; Advisory, Consulting, and Operations.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem;">
+            <span class="badge-pill" style="background:#f4edf9;">Club Founding</span>
+            <span class="badge-pill" style="background:#f4edf9;">Subteam Recruitment</span>
+            <span class="badge-pill" style="background:#f4edf9;">Founders' Letter</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Get Involved / Host an Event Callout -->
+    <section class="container" style="margin-bottom:4rem;" aria-labelledby="host-heading">
+      <div class="callout" style="background:var(--lavender); border:1px solid var(--line);">
+        <div class="hud-mono" style="font-size:0.72rem; color:var(--purple); margin-bottom:0.75rem;">// 03 · PROPOSE OR SPONSOR AN EVENT</div>
+        <h2 id="host-heading">Have an Idea for a Quantum Workshop or Guest Lecture?</h2>
+        <p style="color:var(--muted); max-width:750px; font-size:1.05rem; line-height:1.7; margin-bottom:1.5rem;">
+          We are always eager to collaborate with guest speakers, quantum researchers, industry partners, and student organizers. Reach out to our VP of Events to plan our next session.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+          <a class="button" href="mailto:WEQuantumClub@gmail.com">Contact Events Team</a>
+          <a class="button secondary" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" style="background:white; color:var(--purple); box-shadow:none; border:1px solid var(--purple);">
+            DM on Instagram @wquantumclub ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
 </body>
 </html>
