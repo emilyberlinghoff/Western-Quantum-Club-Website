@@ -130,7 +130,9 @@
     }
   }, { passive: true });
 
-  // Preset Buttons Handling
+  // Preset Buttons and Quantum Gates Handling
+  let measurementFlash = 0;
+
   const presets = {
     'zero': { theta: 0.01, phi: 0, label: '|0⟩ (Ground State)' },
     'one': { theta: Math.PI - 0.01, phi: 0, label: '|1⟩ (Excited State)' },
@@ -139,17 +141,68 @@
     'super': { theta: Math.PI / 3, phi: Math.PI / 4, label: '|ψ⟩ = α|0⟩ + β|1⟩' }
   };
 
+  function updateStateText(text, formula) {
+    const stateTag = document.getElementById('bloch-state-text');
+    if (stateTag) stateTag.textContent = text;
+    const formulaTag = document.getElementById('gate-live-text');
+    if (formulaTag && formula) formulaTag.textContent = formula;
+  }
+
   document.querySelectorAll('[data-bloch-preset]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const p = presets[btn.dataset.blochPreset];
       if (p) {
         targetTheta = p.theta;
         targetPhi = p.phi;
-        animVector = false; // User took manual control
-        document.querySelectorAll('[data-bloch-preset]').forEach(b => b.classList.remove('is-active'));
+        animVector = false;
+        document.querySelectorAll('[data-bloch-preset], [data-bloch-gate]').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
-        const stateTag = document.getElementById('bloch-state-text');
-        if (stateTag) stateTag.textContent = p.label;
+        updateStateText(p.label, `State initialized to ${p.label}`);
+      }
+    });
+  });
+
+  // Quantum Gates Engine (Hadamard, Pauli-X, Pauli-Z, Measurement Collapse)
+  document.querySelectorAll('[data-bloch-gate]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const gate = btn.dataset.blochGate;
+      document.querySelectorAll('[data-bloch-preset], [data-bloch-gate]').forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      if (gate === 'h') {
+        // Hadamard: Rotates ground state |0> to |+> superposition, or flips superposition
+        targetTheta = Math.PI / 2;
+        targetPhi = 0;
+        animVector = false;
+        measurementFlash = 0.6;
+        updateStateText('|+⟩ Hadamard Superposition', 'H Gate applied: Rotated qubit into equal superposition |+⟩ = (|0⟩ + |1⟩)/√2. Probabilities: 50% / 50%.');
+      } else if (gate === 'x') {
+        // Pauli-X (NOT gate): Inverts state |0> <-> |1>
+        targetTheta = Math.PI - currentTheta;
+        targetPhi = (currentPhi + Math.PI) % (Math.PI * 2);
+        animVector = false;
+        measurementFlash = 0.5;
+        updateStateText('X Gate (Bit-Flip |0⟩ ↔ |1⟩)', 'Pauli-X (NOT) applied: Rotated π radians around X-axis. Ground and excited state probabilities inverted.');
+      } else if (gate === 'z') {
+        // Pauli-Z (Phase-flip): Adds pi to phase phi
+        targetPhi = (currentPhi + Math.PI) % (Math.PI * 2);
+        measurementFlash = 0.4;
+        updateStateText('Z Gate (Phase Flip)', 'Pauli-Z applied: Introduced π relative phase shift without changing measurement probabilities.');
+      } else if (gate === 'measure') {
+        // Quantum Measurement / Wavefunction Collapse (Born Rule)
+        const prob0 = Math.cos(currentTheta / 2) ** 2;
+        const collapsedToZero = Math.random() < prob0;
+        targetTheta = collapsedToZero ? 0.01 : (Math.PI - 0.01);
+        targetPhi = 0;
+        animVector = false;
+        measurementFlash = 1.0;
+        const resultState = collapsedToZero ? '|0⟩ Ground' : '|1⟩ Excited';
+        const priorProb = Math.round((collapsedToZero ? prob0 : 1 - prob0) * 100);
+        updateStateText(`Collapsed: ${resultState}!`, `Wavefunction collapsed into ${resultState} state (prior probability was ${priorProb}%). Observer effect active.`);
+      } else if (gate === 'resume') {
+        animVector = true;
+        autoRotate = true;
+        updateStateText('|ψ⟩ Precessing Dynamic State', 'Unitary time evolution resumed: State vector precessing continuously across the Bloch sphere.');
       }
     });
   });
@@ -159,11 +212,19 @@
     resetBtn.addEventListener('click', () => {
       animVector = true;
       autoRotate = true;
-      document.querySelectorAll('[data-bloch-preset]').forEach(b => b.classList.remove('is-active'));
-      const stateTag = document.getElementById('bloch-state-text');
-      if (stateTag) stateTag.textContent = '|ψ⟩ Precessing Dynamic State';
+      document.querySelectorAll('[data-bloch-preset], [data-bloch-gate]').forEach(b => b.classList.remove('is-active'));
+      updateStateText('|ψ⟩ Precessing Dynamic State', 'Dynamic precessing state resumed.');
     });
   }
+
+  // Card mouse-follow spotlight glow effect
+  document.querySelectorAll('.tech-card, .stat-card, .event-box, .gate-playground-box').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+  });
 
   // Draw Function
   function render() {
@@ -353,6 +414,24 @@
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 13px ui-monospace, monospace';
     ctx.fillText('|ψ⟩', tip.x + 12, tip.y - 8);
+
+    // Measurement collapse radiant energy flash
+    if (measurementFlash > 0.02) {
+      ctx.save();
+      const flashRadius = (1 - measurementFlash) * 48 + 10;
+      ctx.strokeStyle = `rgba(188, 131, 255, ${measurementFlash})`;
+      ctx.lineWidth = 3 * measurementFlash;
+      ctx.beginPath();
+      ctx.arc(tip.x, tip.y, flashRadius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = `rgba(255, 255, 255, ${measurementFlash * 0.45})`;
+      ctx.beginPath();
+      ctx.arc(tip.x, tip.y, flashRadius * 0.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      measurementFlash *= 0.91;
+    }
 
     // 5. Update Telemetry HUD in DOM
     const prob0 = Math.cos(currentTheta / 2) ** 2;
