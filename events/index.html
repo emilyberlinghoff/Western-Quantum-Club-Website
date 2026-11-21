@@ -7,15 +7,19 @@
   <meta name="description" content="Explore upcoming and past events, hackathons, Qiskit certification cohorts, and Instagram updates from Western Quantum Club at Western University.">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <script src="../assets/js/site.js" defer></script>
+  <script src="../assets/js/quantum-scroll-bg.js" defer></script>
 </head>
 <body data-page="events">
+  <!-- Dynamic Full-Page Background Quantum Engine (Color transitions as you scroll) -->
+  <canvas id="quantum-scroll-bg" aria-hidden="true"></canvas>
+
   <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header"></header>
 
   <main id="main" tabindex="-1">
 
     <!-- Page Header (Technical Waterloo Defence Style) -->
-    <section class="hero-quantum" style="padding: 3.5rem 0 4rem;" aria-labelledby="events-heading">
+    <section class="hero-quantum" style="padding: 3.5rem 0 3.5rem;" aria-labelledby="events-heading">
       <div class="container">
         <div class="breadcrumb" style="color:var(--accent-lilac);margin-bottom:1.25rem;">
           <a href="../" style="color:#ffffff;">Home</a> / <span class="hud-mono">// Events</span>
@@ -37,8 +41,8 @@
     </section>
 
     <!-- Upcoming Event Radar Banner -->
-    <section class="container" style="margin-top: -2rem; position: relative; z-index: 10;">
-      <div class="callout" style="background:#1b0d30; border:1px solid rgba(188,131,255,0.4); box-shadow:0 10px 30px rgba(0,0,0,0.4); color:#ffffff; padding:1.75rem 2rem;">
+    <section class="container" style="margin-top: -1.5rem; margin-bottom: 2.5rem; position: relative; z-index: 10;">
+      <div class="callout" style="background:rgba(27, 13, 48, 0.85); backdrop-filter:blur(14px); border:1px solid rgba(188,131,255,0.4); box-shadow:0 12px 36px rgba(0,0,0,0.5); color:#ffffff; padding:1.75rem 2rem;">
         <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.25rem;">
           <div>
             <div class="hud-mono" style="font-size:0.72rem; color:var(--accent-lilac); text-transform:uppercase; margin-bottom:0.4rem;">
@@ -51,23 +55,23 @@
           </div>
           <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
             <a class="btn-tech" href="../contact/">Register Interest <span aria-hidden="true">→</span></a>
-            <a class="btn-tech-outline" href="mailto:WEQuantumClub@gmail.com">Sponsor HardHaQ</a>
+            <a class="btn-tech-outline" href="https://www.instagram.com/p/Ddg8DGSxSz9/" target="_blank" rel="noopener noreferrer">Instagram Announcement ↗</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Instagram Feed Showcase Section -->
-    <section class="section container" aria-labelledby="insta-heading">
+    <section class="section container" style="padding-top:0;" aria-labelledby="insta-heading">
       <div class="tech-divider">
         <span>// 01 · Live Social Stream</span>
       </div>
 
-      <div class="insta-showcase">
+      <div class="insta-showcase" style="background:rgba(20, 8, 34, 0.82); backdrop-filter:blur(14px);">
         <div class="insta-header">
           <div class="insta-profile-lockup">
             <div class="insta-avatar">
-              <div class="insta-avatar-inner">W</div>
+              <img src="../assets/images/wqc-logo.png" alt="WQC Profile Logo" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
             </div>
             <div>
               <div class="hud-mono" style="font-size:1.05rem; font-weight:700; color:#ffffff; letter-spacing:0.02em;">
@@ -81,7 +85,7 @@
 
           <div style="display:flex; align-items:center; gap:1rem;">
             <span class="hud-mono" style="font-size:0.75rem; color:#cbb5e2; max-md:hidden;">
-              Stay updated on weekly workshops &amp; announcements
+              Official Instagram Feed &amp; Announcements
             </span>
             <a class="btn-tech" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" style="padding:0.6rem 1.1rem; font-size:0.78rem;">
               Follow on Instagram <span aria-hidden="true">↗</span>
@@ -92,10 +96,10 @@
         <!-- Curated Grid of Real Club Updates -->
         <div class="insta-feed-grid">
           
-          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+          <a class="insta-card" href="https://www.instagram.com/p/Ddg8DGSxSz9/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="insta-card-header">
-                <span>[ANNOUNCEMENT]</span>
+                <span>[COMPETITION]</span>
                 <span>OCT 2025</span>
               </div>
               <p class="insta-card-caption">
@@ -104,15 +108,31 @@
             </div>
             <div class="insta-card-footer">
               <span>#HardHaQ #WQC</span>
-              <span>View Post ↗</span>
+              <span>View on Instagram ↗</span>
             </div>
           </a>
 
-          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+          <a class="insta-card" href="https://www.instagram.com/p/DfV39sTRHZ7/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="insta-card-header">
-                <span>[WORKSHOP]</span>
-                <span>NOV 2024</span>
+                <span>[INTERNATIONAL]</span>
+                <span>FALL 2025</span>
+              </div>
+              <p class="insta-card-caption">
+                Connecting globally through the <strong>International Quantum Exchange</strong>! Collaborating with global quantum groups on research and community innovation. 🌐
+              </p>
+            </div>
+            <div class="insta-card-footer">
+              <span>#QuantumExchange #Global</span>
+              <span>View on Instagram ↗</span>
+            </div>
+          </a>
+
+          <a class="insta-card" href="https://www.instagram.com/p/DRUiWG0Ec3z/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="insta-card-header">
+                <span>[CERTIFICATION]</span>
+                <span>2025</span>
               </div>
               <p class="insta-card-caption">
                 Kicking off our <strong>IBM Qiskit Certification Cohort</strong>. Our software education team is breaking down single-qubit rotations, Bell state entanglement, and Qiskit Runtime.
@@ -120,39 +140,23 @@
             </div>
             <div class="insta-card-footer">
               <span>#IBMQuantum #Qiskit</span>
-              <span>View Post ↗</span>
+              <span>View on Instagram ↗</span>
             </div>
           </a>
 
-          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
+          <a class="insta-card" href="https://www.instagram.com/p/DWMYRFbkTTo/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="insta-card-header">
-                <span>[FACULTY]</span>
-                <span>MAR 2024</span>
+                <span>[SHOWCASE]</span>
+                <span>SPRING 2025</span>
               </div>
               <p class="insta-card-caption">
-                Excited to announce our collaboration with <strong>Dr. Shaimaa Ali</strong>, Inaugural Director of AI Systems Engineering at Western! Bringing quantum computation into modern AI systems.
+                Celebrating our <strong>Annual Project Showcase</strong>! Teams presented quantum portfolio models, routing annealing, and post-quantum AI security. 💡
               </p>
             </div>
             <div class="insta-card-footer">
-              <span>#QuantumAI #WesternEng</span>
-              <span>View Post ↗</span>
-            </div>
-          </a>
-
-          <a class="insta-card" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="insta-card-header">
-                <span>[COMMUNITY]</span>
-                <span>MAR 2023</span>
-              </div>
-              <p class="insta-card-caption">
-                Huge turnout at the <strong>Western Engineering Spring Open House</strong> in ACEB! Inspiring the next generation of engineers with quantum superposition and interactive demos.
-              </p>
-            </div>
-            <div class="insta-card-footer">
-              <span>#ACEB #WesternU</span>
-              <span>View Post ↗</span>
+              <span>#WQCShowcase #Research</span>
+              <span>View on Instagram ↗</span>
             </div>
           </a>
 
@@ -160,7 +164,7 @@
       </div>
     </section>
 
-    <!-- Reverse Chronological Event Archive -->
+    <!-- Reverse Chronological Event Archive with Real Instagram Photos & Links -->
     <section class="section container" style="padding-top:0;" aria-labelledby="archive-heading">
       <div class="tech-divider">
         <span>// 02 · Past &amp; Active Event Archive (Reverse Chronological)</span>
@@ -171,7 +175,7 @@
           <p class="eyebrow">Timeline of Events</p>
           <h2 id="archive-heading">What We’ve Done So Far.</h2>
         </div>
-        <p>A comprehensive log of club hackathons, educational bootcamps, faculty talks, and student competitions in reverse chronological order.</p>
+        <p>A comprehensive log of club hackathons, educational bootcamps, faculty talks, and student competitions in reverse chronological order with real photos from each event.</p>
       </div>
 
       <div class="event-card-grid">
@@ -180,162 +184,183 @@
         <article class="event-box">
           <div class="event-photo-container">
             <span class="event-photo-badge">Competition · 2026</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/hardhaq.jpg" alt="HardHaQ 2026"> -->
-            <div class="event-photo-placeholder">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-              </svg>
-              <span>+ Attach Photo: assets/images/events/hardhaq.jpg</span>
-            </div>
+            <img src="../assets/images/events/hardhaq-2026.jpg" alt="HardHaQ 2026 Hackathon" class="event-photo">
           </div>
           <div class="event-box-content">
             <div class="event-meta">
               <span class="event-date">Upcoming 2026</span>
               <span>•</span>
-              <span>ACEB, Western University</span>
+              <span>Amit Chakma Engineering Building (ACEB)</span>
             </div>
             <h3>HardHaQ 2026: Hardware &amp; Quantum Hackathon</h3>
             <p>
-              Western Quantum Club's flagship 48-hour hackathon. Dual tracks: (1) <strong>Quantum Software</strong> (solving optimization problems with Qiskit and annealing) and (2) <strong>Quantum Hardware</strong> (physical optics experiments, lasers, and photon detectors).
+              Western Quantum Club's flagship 48-hour hackathon. Dual tracks: (1) <strong>Quantum Software</strong> (solving optimization and finance problems using IBM Qiskit and quantum annealing) and (2) <strong>Quantum Hardware</strong> (physical optics experiments, lasers, and detector engineering). Includes workshops, industry mentors, and hardware prizes.
             </p>
             <div class="event-tags-row">
               <span class="badge-pill">IBM Qiskit</span>
               <span class="badge-pill">Optics Hardware</span>
               <span class="badge-pill">Prizes</span>
             </div>
+            <a href="https://www.instagram.com/p/Ddg8DGSxSz9/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
-        <!-- Event 2: Qiskit Certification Program -->
+        <!-- Event 2: International Quantum Exchange -->
         <article class="event-box">
           <div class="event-photo-container">
-            <span class="event-photo-badge">Certification</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/qiskit-cohort.jpg" alt="Qiskit Developer Cohort"> -->
-            <div class="event-photo-placeholder">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-              </svg>
-              <span>+ Attach Photo: assets/images/events/qiskit-cohort.jpg</span>
-            </div>
+            <span class="event-photo-badge">Global Initiative · 2025</span>
+            <img src="../assets/images/events/quantum-exchange.jpg" alt="International Quantum Exchange" class="event-photo">
           </div>
           <div class="event-box-content">
             <div class="event-meta">
-              <span class="event-date">Winter 2025 – 2026</span>
+              <span class="event-date">Fall 2025</span>
+              <span>•</span>
+              <span>Global Collaborative Network</span>
+            </div>
+            <h3>International Quantum Exchange</h3>
+            <p>
+              Connecting Western Quantum Club with student leaders and researchers across global quantum institutions. Exploring collaborative cross-campus hackathons, peer research exchanges, and international perspectives on commercial quantum hardware readiness.
+            </p>
+            <div class="event-tags-row">
+              <span class="badge-pill">Global Network</span>
+              <span class="badge-pill">Research Exchange</span>
+              <span class="badge-pill">Partnership</span>
+            </div>
+            <a href="https://www.instagram.com/p/DfV39sTRHZ7/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Event 3: Qiskit 2025 Developer Certification Program -->
+        <article class="event-box">
+          <div class="event-photo-container">
+            <span class="event-photo-badge">Certification · 2025</span>
+            <img src="../assets/images/events/qiskit-2025.jpg" alt="IBM Qiskit 2025 Certification Cohort" class="event-photo">
+          </div>
+          <div class="event-box-content">
+            <div class="event-meta">
+              <span class="event-date">Winter 2025</span>
               <span>•</span>
               <span>Spencer Engineering Labs</span>
             </div>
             <h3>IBM Qiskit Developer Certification Program</h3>
             <p>
-              A semester-long, structured study cohort designed to guide Western students toward earning the official IBM Certified Associate Developer credential. Led by VP Software Education Emily Berlinghoff.
+              A structured study cohort designed to guide Western students toward earning the official IBM Certified Associate Developer credential for Quantum Computation using Qiskit. Led by VP Software Education Emily Berlinghoff, covering Dirac bra-ket algebra, multi-qubit gates, Bell states, and quantum error mitigation.
             </p>
             <div class="event-tags-row">
               <span class="badge-pill">IBM Certified</span>
               <span class="badge-pill">Weekly Mentorship</span>
               <span class="badge-pill">Hands-on Labs</span>
             </div>
+            <a href="https://www.instagram.com/p/DRUiWG0Ec3z/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
-        <!-- Event 3: Quantum Foundations & Workshops -->
+        <!-- Event 4: WQC Annual Project Showcase & Symposium -->
         <article class="event-box">
           <div class="event-photo-container">
-            <span class="event-photo-badge">Workshops</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/workshops.jpg" alt="Quantum Workshops"> -->
-            <div class="event-photo-placeholder">
-              <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-              </svg>
-              <span>+ Attach Photo: assets/images/events/workshops.jpg</span>
-            </div>
+            <span class="event-photo-badge">Showcase &amp; Symposium</span>
+            <img src="../assets/images/events/project-showcase.jpg" alt="WQC Project Showcase" class="event-photo">
           </div>
           <div class="event-box-content">
             <div class="event-meta">
-              <span class="event-date">Fall 2024 – Winter 2025</span>
+              <span class="event-date">Spring 2025</span>
               <span>•</span>
-              <span>Engineering Classrooms</span>
+              <span>ACEB Showcase Atrium</span>
             </div>
-            <h3>Quantum Software &amp; Theory Workshop Series</h3>
+            <h3>WQC Annual Project Showcase &amp; Symposium</h3>
             <p>
-              Interactive workshops bridging introductory quantum mechanics and practical Python code. Transitioning from gate-level operations to quantum finance and optimization algorithms.
+              Our software, research, and consulting teams presented their end-to-end projects to faculty and industry visitors. Featuring demonstrations of Quantum Amplitude Estimation in quant finance, annealing-based delivery optimization, post-quantum AI security (QModelGuard), and the double-slit experimental rig.
             </p>
             <div class="event-tags-row">
-              <span class="badge-pill">Python &amp; Qiskit</span>
-              <span class="badge-pill">Algorithm Design</span>
-              <span class="badge-pill">All Disciplines</span>
+              <span class="badge-pill">Project Demos</span>
+              <span class="badge-pill">Student Research</span>
+              <span class="badge-pill">Faculty Review</span>
             </div>
+            <a href="https://www.instagram.com/p/DWMYRFbkTTo/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
-        <!-- Event 4: WQC x Dr. Shaimaa Ali -->
+        <!-- Event 5: WQC x Dr. Shaimaa Ali -->
         <article class="event-box">
           <div class="event-photo-container">
-            <span class="event-photo-badge">Keynote &amp; Faculty</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/dr-shaimaa-ali.jpg" alt="Dr. Shaimaa Ali Keynote"> -->
+            <span class="event-photo-badge">Faculty Partnership</span>
             <div class="event-photo-placeholder">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.516 0c.85.493 1.508 1.333 1.508 2.316V18" />
               </svg>
-              <span>+ Attach Photo: assets/images/events/dr-shaimaa-ali.jpg</span>
+              <span>Western AI Systems Engineering</span>
             </div>
           </div>
           <div class="event-box-content">
             <div class="event-meta">
               <span class="event-date">March 2024</span>
               <span>•</span>
-              <span>AI Systems Engineering</span>
+              <span>AI Systems Engineering Department</span>
             </div>
             <h3>WQC x Dr. Shaimaa Ali: Quantum AI Systems Initiative</h3>
             <p>
-              Inaugural partnership event with Dr. Shaimaa Ali, Inaugural Director of the AI Systems Engineering Program at Western University, exploring quantum neural networks and post-quantum cryptography.
+              Inaugural partnership event with Dr. Shaimaa Ali, Inaugural Director of the AI Systems Engineering Program at Western University, exploring quantum neural networks, post-quantum cryptography, and academic curriculum integration.
             </p>
             <div class="event-tags-row">
               <span class="badge-pill">Quantum AI</span>
-              <span class="badge-pill">Faculty Keynote</span>
-              <span class="badge-pill">Research</span>
+              <span class="badge-pill">Keynote</span>
+              <span class="badge-pill">Curriculum</span>
             </div>
+            <a href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
-        <!-- Event 5: Spring Open House at ACEB -->
+        <!-- Event 6: Spring Open House at ACEB -->
         <article class="event-box">
           <div class="event-photo-container">
             <span class="event-photo-badge">Community Outreach</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/aceb-open-house.jpg" alt="Spring Open House ACEB"> -->
             <div class="event-photo-placeholder">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
               </svg>
-              <span>+ Attach Photo: assets/images/events/aceb-open-house.jpg</span>
+              <span>ACEB Atrium Demo Day</span>
             </div>
           </div>
           <div class="event-box-content">
             <div class="event-meta">
               <span class="event-date">March 24, 2023</span>
               <span>•</span>
-              <span>ACEB Atrium, Western</span>
+              <span>ACEB Atrium, Western University</span>
             </div>
             <h3>WQC Spring Engineering Open House</h3>
             <p>
-              Interactive showcase for incoming engineering students and parents at the Amit Chakma Engineering Building (ACEB), demonstrating live quantum superposition experiments and Qiskit simulations.
+              Interactive showcase for incoming engineering students and parents at the Amit Chakma Engineering Building (ACEB), demonstrating live quantum superposition experiments and Qiskit simulations with enthusiastic engagement.
             </p>
             <div class="event-tags-row">
               <span class="badge-pill">Live Demos</span>
               <span class="badge-pill">ACEB Showcase</span>
               <span class="badge-pill">Outreach</span>
             </div>
+            <a href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
-        <!-- Event 6: Inaugural General Meeting -->
+        <!-- Event 7: Inaugural General Meeting -->
         <article class="event-box">
           <div class="event-photo-container">
             <span class="event-photo-badge">Club Founding</span>
-            <!-- Anyone on the team can attach a photo by adding: <img src="../assets/images/events/inaugural-meeting.jpg" alt="Inaugural Meeting"> -->
             <div class="event-photo-placeholder">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
               </svg>
-              <span>+ Attach Photo: assets/images/events/inaugural-meeting.jpg</span>
+              <span>Founders Launch Assembly</span>
             </div>
           </div>
           <div class="event-box-content">
@@ -346,13 +371,16 @@
             </div>
             <h3>Western Quantum Club Inaugural Launch &amp; AGM</h3>
             <p>
-              Founders Jackson Freeman, Emma Turk, and Nicolas Folz officially launched the club to equip students with quantum computing skills. Established the research, software, and consulting teams.
+              Founders Jackson Freeman, Emma Turk, and Nicolas Folz officially launched the club to equip students with quantum computing skills. Established the research, software, and consulting teams with over 100 students attending.
             </p>
             <div class="event-tags-row">
               <span class="badge-pill">Club Founding</span>
               <span class="badge-pill">Recruitment</span>
               <span class="badge-pill">Founders</span>
             </div>
+            <a href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" class="btn-insta-post">
+              <span>View on Instagram</span> <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </article>
 
@@ -361,15 +389,15 @@
 
     <!-- Get Involved / Host an Event Callout -->
     <section class="container" style="margin-bottom:4rem;" aria-labelledby="host-heading">
-      <div class="callout" style="background:var(--lavender); border:1px solid var(--line);">
-        <div class="hud-mono" style="font-size:0.72rem; color:var(--purple); margin-bottom:0.75rem;">// 03 · PROPOSE OR SPONSOR AN EVENT</div>
-        <h2 id="host-heading">Have an Idea for a Quantum Workshop or Guest Lecture?</h2>
-        <p style="color:var(--muted); max-width:750px; font-size:1.05rem; line-height:1.7; margin-bottom:1.5rem;">
+      <div class="callout" style="background:rgba(23, 10, 43, 0.85); backdrop-filter:blur(14px); border:1px solid rgba(188,131,255,0.3); color:#ffffff;">
+        <div class="hud-mono" style="font-size:0.72rem; color:var(--accent-lilac); margin-bottom:0.75rem;">// 03 · PROPOSE OR SPONSOR AN EVENT</div>
+        <h2 id="host-heading" style="color:#ffffff;">Have an Idea for a Quantum Workshop or Guest Lecture?</h2>
+        <p style="color:#d4b4f5; max-width:750px; font-size:1.05rem; line-height:1.7; margin-bottom:1.5rem;">
           We are always eager to collaborate with guest speakers, quantum researchers, industry partners, and student organizers. Reach out to our VP of Events to plan our next session.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:1rem;">
-          <a class="button" href="mailto:WEQuantumClub@gmail.com">Contact Events Team</a>
-          <a class="button secondary" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer" style="background:white; color:var(--purple); box-shadow:none; border:1px solid var(--purple);">
+          <a class="btn-tech" href="mailto:WEQuantumClub@gmail.com">Contact Events Team</a>
+          <a class="btn-tech-outline" href="https://www.instagram.com/wquantumclub/" target="_blank" rel="noopener noreferrer">
             DM on Instagram @wquantumclub ↗
           </a>
         </div>
@@ -379,5 +407,11 @@
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- Floating Scroll Quantum Telemetry Status -->
+  <div class="scroll-telemetry-pill" aria-hidden="true">
+    <span class="scroll-indicator-dot"></span>
+    <span id="hud-telemetry-text">EVENTS TIMELINE // REVERSE CHRONOLOGICAL</span>
+  </div>
 </body>
 </html>
