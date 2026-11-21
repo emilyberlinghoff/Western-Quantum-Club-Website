@@ -16,7 +16,7 @@
   document.querySelector('#site-header').innerHTML = `
     <div class="container header-inner">
       <a class="brand" href="${url()}">
-        <span class="brand-mark" aria-hidden="true">WQC</span>
+        <img class="brand-logo" src="${url('assets/images/wqc-logo.png')}" alt="Western Quantum Club Logo" width="44" height="44">
         <span>Western Quantum Club<small>Western University · London, ON</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
@@ -26,7 +26,11 @@
     </div>`;
   document.querySelector('#site-footer').innerHTML = `
     <div class="container footer-inner">
-      <div><p><strong>Western Quantum Club</strong></p>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem;">
+          <img src="${url('assets/images/wqc-logo.png')}" alt="Western Quantum Club Logo" width="32" height="32" style="border-radius:50%;object-fit:cover;">
+          <strong>Western Quantum Club</strong>
+        </div>
         <p>Western University · London, Ontario, Canada</p>
         <p>© ${new Date().getFullYear()} Western Quantum Club</p>
       </div>
