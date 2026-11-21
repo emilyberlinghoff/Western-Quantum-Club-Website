@@ -7,9 +7,13 @@
   <meta name="description" content="Explore quantum computing with Western Quantum Club at Western University. Engineering quantum algorithms, Qiskit modeling, and research.">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/quantum-scroll-bg.js" defer></script>
   <script src="assets/js/bloch-sphere.js" defer></script>
 </head>
 <body data-page="home">
+  <!-- Dynamic Full-Page Background Quantum Engine (Reacts to scroll & cursor) -->
+  <canvas id="quantum-scroll-bg" aria-hidden="true"></canvas>
+
   <a class="skip-link" href="#main">Skip to content</a>
   <header id="site-header" class="site-header"></header>
 
@@ -285,5 +289,11 @@
   </main>
 
   <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- Floating Scroll Quantum Telemetry Status -->
+  <div class="scroll-telemetry-pill" aria-hidden="true">
+    <span class="scroll-indicator-dot"></span>
+    <span id="hud-telemetry-text">QUANTUM PHASE // COHERENT</span>
+  </div>
 </body>
 </html>

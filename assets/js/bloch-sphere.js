@@ -119,6 +119,17 @@
 
   window.addEventListener('touchend', onPointerUp);
 
+  // Dynamic reaction to scroll
+  window.addEventListener('scroll', () => {
+    if (autoRotate && !isDragging) {
+      targetRotY += 0.02;
+      targetRotX = 0.35 + Math.sin(window.scrollY * 0.003) * 0.25;
+      if (animVector) {
+        targetTheta = (Math.PI / 4) + (window.scrollY * 0.002) % (Math.PI / 2);
+      }
+    }
+  }, { passive: true });
+
   // Preset Buttons Handling
   const presets = {
     'zero': { theta: 0.01, phi: 0, label: '|0⟩ (Ground State)' },
